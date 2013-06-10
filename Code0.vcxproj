@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8EDC1ACD-EC30-4CA9-B6D7-592E80F9F0AC}</ProjectGuid>
+    <RootNamespace>Code0</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC70.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC70.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.60315.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <AssemblerOutput />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0000</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Code0.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Code0.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions> /J</AdditionalOptions>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0000</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Code0.exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Code0.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="address_data.cpp" />
+    <ClCompile Include="address_data_element.cpp" />
+    <ClCompile Include="address_map.cpp" />
+    <ClCompile Include="application.cpp" />
+    <ClCompile Include="binary_parser.cpp" />
+    <ClCompile Include="code_assembler.cpp" />
+    <ClCompile Include="code_parser.cpp" />
+    <ClCompile Include="com_parser.cpp" />
+    <ClCompile Include="comment.cpp" />
+    <ClCompile Include="consts.cpp" />
+    <ClCompile Include="cyber_memory.cpp" />
+    <ClCompile Include="dangle_group.cpp" />
+    <ClCompile Include="dangle_window.cpp" />
+    <ClCompile Include="danglewindow_code.cpp" />
+    <ClCompile Include="danglewindow_danglegroup.cpp" />
+    <ClCompile Include="danglewindow_hex.cpp" />
+    <ClCompile Include="dialog.cpp" />
+    <ClCompile Include="dialog_about.cpp" />
+    <ClCompile Include="dialog_comparsersettings.cpp" />
+    <ClCompile Include="dialog_editcomment.cpp" />
+    <ClCompile Include="dialog_editlabel.cpp" />
+    <ClCompile Include="dialog_enterstring.cpp" />
+    <ClCompile Include="dialog_gotoaddress.cpp" />
+    <ClCompile Include="dialog_gotoxreference.cpp" />
+    <ClCompile Include="dialog_instructionassembler.cpp" />
+    <ClCompile Include="dialog_list_exports.cpp" />
+    <ClCompile Include="dialog_list_imports.cpp" />
+    <ClCompile Include="dialog_messagebox.cpp" />
+    <ClCompile Include="dialog_peparsersettings.cpp" />
+    <ClCompile Include="dialog_selectfileanalizer.cpp" />
+    <ClCompile Include="dialog_splash.cpp" />
+    <ClCompile Include="dumpfile_parser.cpp" />
+    <ClCompile Include="edited_file.cpp" />
+    <ClCompile Include="explored_image.cpp" />
+    <ClCompile Include="file_parser.cpp" />
+    <ClCompile Include="image_list_exports.cpp" />
+    <ClCompile Include="image_list_imports.cpp" />
+    <ClCompile Include="instruction.cpp" />
+    <ClCompile Include="instruction_set.cpp" />
+    <ClCompile Include="interpretations.cpp" />
+    <ClCompile Include="label.cpp" />
+    <ClCompile Include="listing.cpp" />
+    <ClCompile Include="listing_device.cpp" />
+    <ClCompile Include="listing_string.cpp" />
+    <ClCompile Include="listing_textfile.cpp" />
+    <ClCompile Include="load_intstructions.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_window.cpp" />
+    <ClCompile Include="object.cpp" />
+    <ClCompile Include="operands.cpp" />
+    <ClCompile Include="painted_window.cpp" />
+    <ClCompile Include="pe_parser.cpp" />
+    <ClCompile Include="strings.cpp" />
+    <ClCompile Include="subroutine.cpp" />
+    <ClCompile Include="tool_dumper.cpp" />
+    <ClCompile Include="usercontrol_list.cpp" />
+    <ClCompile Include="window.cpp" />
+    <ClCompile Include="xreference.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="address_data.h" />
+    <ClInclude Include="address_data_element.h" />
+    <ClInclude Include="address_map.h" />
+    <ClInclude Include="application.h" />
+    <ClInclude Include="binary_parser.h" />
+    <ClInclude Include="code_assembler.h" />
+    <ClInclude Include="code_parser.h" />
+    <ClInclude Include="com_parser.h" />
+    <ClInclude Include="comment.h" />
+    <ClInclude Include="consts.h" />
+    <ClInclude Include="cyber_memory.h" />
+    <ClInclude Include="dangle_group.h" />
+    <ClInclude Include="dangle_window.h" />
+    <ClInclude Include="danglewindow_code.h" />
+    <ClInclude Include="danglewindow_danglegroup.h" />
+    <ClInclude Include="danglewindow_hex.h" />
+    <ClInclude Include="danglewindow_imports.h" />
+    <ClInclude Include="dialog.h" />
+    <ClInclude Include="dialog_about.h" />
+    <ClInclude Include="dialog_comparsersettings.h" />
+    <ClInclude Include="dialog_editcomment.h" />
+    <ClInclude Include="dialog_editlabel.h" />
+    <ClInclude Include="dialog_enterstring.h" />
+    <ClInclude Include="dialog_gotoaddress.h" />
+    <ClInclude Include="dialog_gotoxreference.h" />
+    <ClInclude Include="dialog_instructionassembler.h" />
+    <ClInclude Include="dialog_list_exports.h" />
+    <ClInclude Include="dialog_list_imports.h" />
+    <ClInclude Include="dialog_messagebox.h" />
+    <ClInclude Include="dialog_peparsersettings.h" />
+    <ClInclude Include="dialog_selectfileanalizer.h" />
+    <ClInclude Include="dialog_splash.h" />
+    <ClInclude Include="disassembly.h" />
+    <ClInclude Include="dumpfile_parser.h" />
+    <ClInclude Include="edited_file.h" />
+    <ClInclude Include="explored_image.h" />
+    <ClInclude Include="file_parser.h" />
+    <ClInclude Include="fileformat_dump.h" />
+    <ClInclude Include="image_extend_object.h" />
+    <ClInclude Include="image_list_exports.h" />
+    <ClInclude Include="image_list_imports.h" />
+    <ClInclude Include="instruction.h" />
+    <ClInclude Include="instruction_set.h" />
+    <ClInclude Include="instructions.h" />
+    <ClInclude Include="interpretations.h" />
+    <ClInclude Include="label.h" />
+    <ClInclude Include="listing.h" />
+    <ClInclude Include="listing_device.h" />
+    <ClInclude Include="listing_string.h" />
+    <ClInclude Include="listing_textfile.h" />
+    <ClInclude Include="localization.h" />
+    <ClInclude Include="main_window.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="operands.h" />
+    <ClInclude Include="painted_window.h" />
+    <ClInclude Include="pe_parser.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="strings.h" />
+    <ClInclude Include="subroutine.h" />
+    <ClInclude Include="tool_dumper.h" />
+    <ClInclude Include="usercontrol_list.h" />
+    <ClInclude Include="window.h" />
+    <ClInclude Include="windows.h" />
+    <ClInclude Include="xreference.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="Code0.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Code0.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="emptybrush.bmp" />
+    <Image Include="iconquestion.bmp" />
+    <Image Include="iconstop.bmp" />
+    <Image Include="iconwarning.bmp" />
+    <Image Include="knot.bmp" />
+    <Image Include="knot.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="notes.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,687 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_MAIN MENU 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "Open image...\tCtrl+O",       MID_MAIN_FILE_OPENIMAGE
+        MENUITEM "Open in HEX...\tCtrl + H",    MID_MAIN_FILE_OPENHEX
+        MENUITEM SEPARATOR
+        MENUITEM "Quit\tAlt + X",               MID_MAIN_FILE_QUIT
+    END
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "Dump process memory...\tCtrl + D", MID_MAIN_TOOLS_DUMPPROCESSMEMORY
+        MENUITEM "Instruction Assembler...\tCtrl + A", MID_MAIN_TOOLS_INSTRUCTIONASSEMBLER, GRAYED
+    END
+    POPUP "Window"
+    BEGIN
+        MENUITEM "Close\tCtrl + F4",            MID_MAIN_WINDOW_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "All windows...",              MID_MAIN_WINDOW_ALLWINDOWS, GRAYED
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "About...",                    MID_MAIN_HELP_ABOUT
+    END
+END
+
+IDR_MENU_CODE MENU 
+BEGIN
+    POPUP "Code"
+    BEGIN
+        MENUITEM "Save database...",            MID_CODE_CODE_SAVEDATABASE, GRAYED
+        MENUITEM "Save listing (TEST)",         MID_CODE_CODE_SAVELISTING
+    END
+    POPUP "Information"
+    BEGIN
+        MENUITEM "Imports List...\tCtrl + Shift + I", MID_CODE_INFORMATION_IMPORTSLIST
+        MENUITEM "Exports List...\tCtrl + Shift + E", MID_CODE_INFORMATION_EXPORTSLIST
+        MENUITEM SEPARATOR
+        MENUITEM "Instruction Visualization...", MID_CODE_INFORMATION_INSTRUCTIONVISUALIZATION
+    END
+    POPUP "Navigate"
+    BEGIN
+        MENUITEM "History back\tAlt + Left",    MID_CODE_NAVIGATE_HISTORYBACK
+        MENUITEM "History forward\tAlt + Right", MID_CODE_NAVIGATE_HISTORYFORWARD
+        MENUITEM SEPARATOR
+        MENUITEM "Go to address...\tG",         MID_CODE_NAVIGATE_GOTOADDRESS
+        MENUITEM "Go to reference...\tR",       MID_CODE_NAVIGATE_GOTOREFERENCE
+        MENUITEM "Go to x-reference...\tX",     MID_CODE_NAVIGATE_GOTOXREFERENCE
+    END
+    POPUP "Interpretate"
+    BEGIN
+        POPUP "As data"
+        BEGIN
+            MENUITEM "Byte\tB",                     MID_CODE_INTERPRETATE_DATA_BYTE
+            MENUITEM "Word\tW",                     MID_CODE_INTERPRETATE_DATA_WORD
+            MENUITEM "Dword\tD",                    MID_CODE_INTERPRETATE_DATA_DWORD
+        END
+        MENUITEM "As code\tC",                  MID_CODE_INTERPRETATE_CODE
+        MENUITEM "As Unicode string\tS",        MID_CODE_INTERPRETATE_UNICODESTRING
+        MENUITEM "As ASCII string\tA",          MID_CODE_INTERPRETATE_ASCIISTRING
+        MENUITEM SEPARATOR
+        MENUITEM "Delete interpretation\tDelete", MID_CODE_INTERPRETATE_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Edit label...\tL",            MID_CODE_INTERPRETATE_EDITLABEL
+        MENUITEM "Edit comment...\t;",          MID_CODE_INTERPRETATE_EDITCOMMENT
+        MENUITEM "Add X-Reference...\tCtrl + X", MID_CODE_INTERPRETATE_ADDXREFERENCE
+        MENUITEM SEPARATOR
+        MENUITEM "Create subroutine\tT",        MID_CODE_INTERPRETATE_CREATESUBROUTINE
+        MENUITEM SEPARATOR
+        MENUITEM "Address data...",             MID_CODE_INTERPRETATE_ADDRESSDATA
+    END
+    POPUP "Disassemble"
+    BEGIN
+        POPUP "Processor mode"
+        BEGIN
+            MENUITEM "16-bit",                      MID_CODE_PROCESSORMODE_16BIT
+            MENUITEM "32-bit",                      MID_CODE_PROCESSORMODE_32BIT
+        END
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LIST_LABELS DIALOGEX 0, 0, 286, 137
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST | WS_EX_TOOLWINDOW
+CAPTION "Labels List"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST_LABELS,0,0,198,132,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | NOT WS_BORDER | WS_VSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "Go",IDC_BUTTON_GO_TO_LABEL,204,6,78,18,WS_DISABLED
+    PUSHBUTTON      "Find...",IDC_BUTTON_FIND_LABEL,204,30,78,18
+END
+
+IDD_DIALOG_GO_TO_XREFERENCE DIALOGEX 0, 0, 334, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Cross References"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Cross references:",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,6,6,168,12
+    LISTBOX         IDC_LIST_XREFERENCES,6,18,324,138,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | NOT WS_BORDER | WS_VSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "Go",IDC_BUTTON_GO,216,162,54,18,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,276,162,54,18
+END
+
+IDD_DIALOG_GO_TO_ADDRESS DIALOGEX 0, 0, 124, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Go to address"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Enter target address:",IDC_STATIC,12,6,108,12
+    EDITTEXT        IDC_EDIT_ADDRESS,6,24,84,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "h",IDC_STATIC,96,24,24,12,SS_CENTERIMAGE
+    DEFPUSHBUTTON   "OK",IDOK,6,42,54,18
+    PUSHBUTTON      "Cancel",IDCANCEL,66,42,54,18
+END
+
+IDD_DIALOG_EDITLABEL DIALOGEX 0, 0, 184, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit label"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Enter label for selected address:",IDC_STATIC,6,6,162,18
+    EDITTEXT        IDC_EDIT_LABEL,6,36,174,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,6,66,54,18
+    PUSHBUTTON      "Cancel",IDCANCEL,66,66,54,18
+    PUSHBUTTON      "Delete",IDC_BUTTON_DELETE_LABEL,126,66,54,18,WS_DISABLED
+END
+
+IDD_DIALOG_LINKED_DATA DIALOGEX 0, 0, 244, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Address Linked Data"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Elements of linked data for address:",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,6,6,162,12
+    LISTBOX         IDC_LIST_ELEMENTS,6,18,228,120,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Close",IDOK,132,144,50,18
+    PUSHBUTTON      "Delete",IDC_BUTTON_DELETE_ELEMENT,186,144,48,18,WS_DISABLED
+END
+
+IDD_DIALOG_ABOUT DIALOGEX 0, 0, 256, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Quyse Code0"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "About Quyse Lert's Code0 Disassembler",IDC_STATIC,90,6,162,108
+    LTEXT           "Quyse Lert's Code0 Disassembler is an experimental program for disassembling and reverse engineering.\n\nCopyright © 2006-2013 Alexander Bich (aka Quyse Lert).",IDC_STATIC,96,24,150,78
+    DEFPUSHBUTTON   "OK",IDOK,186,120,66,18
+END
+
+IDD_DIALOG_STATISTICS DIALOGEX 0, 0, 202, 156
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Disassembly Statistics"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,126,114,45,17
+END
+
+IDD_DIALOG_ENTERSTRING DIALOGEX 0, 0, 220, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Caption"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_STATIC_TITLE,6,6,210,30
+    EDITTEXT        IDC_EDIT_STRING,6,48,210,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,114,66,48,18
+    PUSHBUTTON      "Cancel",IDCANCEL,168,66,48,18
+END
+
+IDD_DIALOG_SELECTFILEANALIZER DIALOGEX 0, 0, 442, 217
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Specify File Analize Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Perfomance information",IDC_STATIC,6,6,120,108
+    CONTROL         "",IDC_PROGRESS_USINGMEMORY,"msctls_progress32",WS_BORDER,12,73,78,12
+    LTEXT           "",IDC_STATIC_MEMORYINFORMATION,12,25,108,24
+    CONTROL         "Using of physical memory:",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,12,54,108,18
+    PUSHBUTTON      "Update",IDC_BUTTON_UPDATEMEMORYINFORMATION,36,90,60,18
+    CONTROL         "",IDC_STATIC_MEMORYUSINGPERCENT,"Static",SS_SIMPLE | WS_GROUP,96,73,24,12
+    GROUPBOX        "Description of selected analizer",IDC_STATIC,6,121,120,66
+    LTEXT           "(no analizers selected)",IDC_STATIC_DESCRIPTION,12,132,108,48,WS_DISABLED
+    GROUPBOX        "Analize Parameters",IDC_STATIC,132,6,300,180
+    CONTROL         "These file analizers can perform the automatic analize for this file:",IDC_STATIC,
+                    "Static",SS_SIMPLE | WS_GROUP,144,18,276,18
+    LISTBOX         IDC_LIST_FILE_ANALIZERS,144,36,276,120,LBS_OWNERDRAWVARIABLE | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select file analizer for your explored file.",IDC_STATIC_CUSTOMIZE,144,162,204,18
+    PUSHBUTTON      "Customize...",IDC_BUTTON_CUSTOMIZE,354,162,66,18,WS_DISABLED
+    CONTROL         "Click ""Continue"" button to step forward.",IDC_STATIC_CONTINUE,
+                    "Static",SS_SIMPLE | NOT WS_VISIBLE | WS_GROUP,132,198,138,12
+    DEFPUSHBUTTON   "Continue",IDOK,330,193,48,18,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,384,193,48,18
+END
+
+IDD_DIALOG_PEPARSERSETTINGS DIALOGEX 0, 0, 328, 193
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PE File Parser Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Loading base address",IDC_STATIC,6,6,168,90
+    LTEXT           "Image base address for loading:",IDC_STATIC,12,18,138,18
+    CONTROL         "Preferred base address",IDC_RADIO_IMAGEBASEPREFERRED,
+                    "Button",BS_AUTORADIOBUTTON,12,36,138,12
+    CONTROL         "Specify address:",IDC_RADIO_IMAGEBASESPECIFY,"Button",BS_AUTORADIOBUTTON,12,54,138,18
+    EDITTEXT        IDC_EDIT_BASEADDRESS,42,72,72,12,ES_RIGHT | ES_AUTOHSCROLL,WS_EX_RIGHT
+    CONTROL         "h",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,120,72,18,12
+    GROUPBOX        "Application environment simulation",IDC_STATIC,6,102,168,84
+    CONTROL         "Load and analyze used libaries",IDC_CHECK_LOAD_LIBRARIES,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,12,114,156,12
+    CONTROL         "Using shared memory for image and libraries",IDC_CHECK_USING_SHARED_CYBERMEMORY,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,12,132,156,12
+    CONTROL         "Use bound import if possible",IDC_CHECK_USE_BOUND_IMPORT,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,12,150,156,12
+    GROUPBOX        "Analizing parameters",IDC_STATIC,180,6,144,90
+    CONTROL         "Perform DOS stub analizing",IDC_CHECK_ANALIZE_DOS_STUB,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,186,24,132,12
+    CONTROL         "Perform export entries analizing",IDC_CHECK_ANALIZE_EXPORTS_CODE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,186,42,132,18
+    DEFPUSHBUTTON   "OK",IDOK,222,168,48,18
+    PUSHBUTTON      "Cancel",IDCANCEL,276,168,48,18
+END
+
+IDD_DIALOG_SPLASH DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Processing...",IDC_STATIC,12,12,162,66
+    CTEXT           "",IDC_STATIC_MESSAGE,18,24,150,48,SS_CENTERIMAGE
+END
+
+IDD_DIALOG_MESSAGEBOX DIALOGEX 0, 0, 220, 102
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Quyse Code0"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Text",IDC_STATIC_TEXT,36,12,174,60
+    PUSHBUTTON      "Buttons Area",IDC_BUTTON_AREA,36,78,60,18,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC_ICON,"Static",SS_BITMAP | SS_CENTERIMAGE | WS_GROUP,6,18,20,20
+END
+
+IDD_DIALOG_TOOL_DUMPER_SELECT_PROCESS DIALOGEX 0, 0, 418, 282
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Process Memory Dumper - Select Process"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "List of processes on your system:",IDC_STATIC,6,6,402,144
+    LISTBOX         IDC_LIST_PROCESSES,12,24,390,96,LBS_OWNERDRAWVARIABLE | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select a process to view additional information.",IDC_STATIC,12,126,324,18
+    PUSHBUTTON      "Update",IDC_BUTTON_UPDATE,342,126,60,18
+    GROUPBOX        "Additional options",IDC_STATIC,6,156,198,96
+    CONTROL         "Include dynamic-link libraries into dump",IDC_CHECK_DUMP_INCLUDE_LIBRARIES,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,12,168,186,12
+    GROUPBOX        "Memory space details for selected process",IDC_STATIC,210,156,198,96
+    LTEXT           "(no process is being selected)",IDC_STATIC_PROCESS_INFORMATION,216,168,186,78,WS_DISABLED
+    DEFPUSHBUTTON   "Dump Process Memory",IDC_BUTTON_DUMP_PROCESS_MEMORY,252,258,90,18,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,348,258,62,18
+END
+
+IDD_DIALOG_EDITCOMMENT DIALOGEX 0, 0, 184, 121
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit comment"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Enter comment for selected address:",IDC_STATIC,6,6,162,18
+    EDITTEXT        IDC_EDIT_COMMENT,6,36,174,54,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,6,96,54,18
+    PUSHBUTTON      "Cancel",IDCANCEL,66,96,54,18
+    PUSHBUTTON      "Delete",IDC_BUTTON_DELETE_COMMENT,126,96,54,18,WS_DISABLED
+END
+
+IDD_DIALOG_LIST_IMPORTS DIALOGEX 0, 0, 388, 252
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "List Imports"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "List of import functions:",IDC_STATIC,6,6,210,12
+    EDITTEXT        IDC_EDIT_FILTER,6,24,378,12,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST_IMPORTS,6,36,378,186,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Go to import",IDC_BUTTON_GOTO_IMPORT,126,228,108,18,WS_DISABLED
+    PUSHBUTTON      "X references...",IDC_BUTTON_XREFERENCES,240,228,90,18,WS_DISABLED
+    PUSHBUTTON      "Close",IDCANCEL,336,228,48,18
+END
+
+IDD_DIALOG_LIST_EXPORTS DIALOGEX 0, 0, 376, 252
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "List Exports"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "List of export functions:",IDC_STATIC,6,6,210,12
+    EDITTEXT        IDC_EDIT_FILTER,6,24,366,12,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST_EXPORTS,6,36,366,186,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Go to function code",IDC_BUTTON_GOTO_EXPORT,114,228,108,18,WS_DISABLED
+    PUSHBUTTON      "X references...",IDC_BUTTON_XREFERENCES,228,228,90,18,WS_DISABLED
+    PUSHBUTTON      "Close",IDCANCEL,324,228,48,18
+END
+
+IDD_DIALOG_INSTRUCTION_VISUALIZER DIALOGEX 0, 0, 268, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Instruction Visualizer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,192,156,51,18
+    CONTROL         "Instruction machine code:",IDC_STATIC,"Static",SS_SIMPLE | WS_GROUP,12,6,246,12
+    EDITTEXT        IDC_EDIT_CODE,6,18,252,12,ES_AUTOHSCROLL
+    GROUPBOX        "Code visualization",IDC_STATIC,6,36,252,114
+    CONTROL         "",IDC_PICTURE_VISUALIZATION,"Static",SS_OWNERDRAW,12,48,240,96
+END
+
+IDD_DIALOG_COMPARSERSETTINGS DIALOGEX 0, 0, 256, 136
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COM File Parser Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Analizing parameters",IDC_STATIC,6,6,108,102
+    LTEXT           "Loading base address:",IDC_STATIC,12,18,90,12
+    EDITTEXT        IDC_EDIT_BASEADDRESS,12,30,78,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "h",IDC_STATIC,96,32,12,12
+    LTEXT           "Entry point address:",IDC_STATIC,12,54,90,12
+    EDITTEXT        IDC_EDIT_ENTRYPOINTADDRESS,12,66,78,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "h",IDC_STATIC,96,68,12,12
+    CONTROL         "Decode interrupt table",IDC_CHECK_INTERRUPTTABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,90,96,10
+    GROUPBOX        "Code bit capacity",IDC_STATIC,120,6,132,54
+    CONTROL         "16-bit (standard for COM files)",IDC_RADIO_16BIT,"Button",BS_AUTORADIOBUTTON,126,18,120,12
+    CONTROL         "32-bit (for uncommon files)",IDC_RADIO_32BIT,"Button",BS_AUTORADIOBUTTON,126,36,120,12
+    DEFPUSHBUTTON   "OK",IDOK,144,114,48,18
+    PUSHBUTTON      "Cancel",IDCANCEL,198,114,48,18
+END
+
+IDD_DIALOG_INSTRUCTIONASSEMBLER DIALOGEX 0, 0, 262, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Instruction Assembler"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,204,162,51,18
+    LTEXT           "Assembler Instruction:",IDC_STATIC,6,6,156,12
+    EDITTEXT        IDC_EDIT_INSTRUCTION,6,18,174,12,ES_AUTOHSCROLL
+    GROUPBOX        "Code variants",IDC_STATIC,6,36,246,120
+    LISTBOX         IDC_LIST_INSTRUCTION_VARIANTS,12,48,234,96,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Assemble",IDC_BUTTON_ASSEMBLE,186,15,66,18
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_LIST_LABELS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_DIALOG_GO_TO_XREFERENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 327
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_DIALOG_GO_TO_ADDRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_DIALOG_EDITLABEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_DIALOG_LINKED_DATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_DIALOG_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_DIALOG_STATISTICS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_DIALOG_ENTERSTRING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_DIALOG_SELECTFILEANALIZER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 435
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_DIALOG_PEPARSERSETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 321
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_DIALOG_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_DIALOG_MESSAGEBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_DIALOG_TOOL_DUMPER_SELECT_PROCESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 411
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_DIALOG_EDITCOMMENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_DIALOG_LIST_IMPORTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 381
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_DIALOG_LIST_EXPORTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 369
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_DIALOG_INSTRUCTION_VISUALIZER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_DIALOG_COMPARSERSETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 129
+    END
+
+    IDD_DIALOG_INSTRUCTIONASSEMBLER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_APP            ICON                    "knot.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR_MAIN ACCELERATORS 
+BEGIN
+    "H",            MID_MAIN_FILE_OPENHEX,  VIRTKEY, CONTROL, NOINVERT
+    "O",            MID_MAIN_FILE_OPENIMAGE, VIRTKEY, CONTROL, NOINVERT
+    "X",            MID_MAIN_FILE_QUIT,     VIRTKEY, ALT, NOINVERT
+    "D",            MID_MAIN_TOOLS_DUMPPROCESSMEMORY, VIRTKEY, CONTROL, NOINVERT
+    VK_F4,          MID_MAIN_WINDOW_CLOSE,  VIRTKEY, CONTROL, NOINVERT
+    "A",            MID_MAIN_TOOLS_INSTRUCTIONASSEMBLER, VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_ACCELERATOR_CODE ACCELERATORS 
+BEGIN
+    "E",            MID_CODE_INFORMATION_EXPORTSLIST, VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "I",            MID_CODE_INFORMATION_IMPORTSLIST, VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "X",            MID_CODE_INTERPRETATE_ADDXREFERENCE, VIRTKEY, CONTROL, NOINVERT
+    "A",            MID_CODE_INTERPRETATE_ASCIISTRING, VIRTKEY, NOINVERT
+    "C",            MID_CODE_INTERPRETATE_CODE, VIRTKEY, NOINVERT
+    "T",            MID_CODE_INTERPRETATE_CREATESUBROUTINE, VIRTKEY, NOINVERT
+    "B",            MID_CODE_INTERPRETATE_DATA_BYTE, VIRTKEY, NOINVERT
+    "D",            MID_CODE_INTERPRETATE_DATA_DWORD, VIRTKEY, NOINVERT
+    "W",            MID_CODE_INTERPRETATE_DATA_WORD, VIRTKEY, NOINVERT
+    VK_DELETE,      MID_CODE_INTERPRETATE_DELETE, VIRTKEY, NOINVERT
+    VK_OEM_1,       MID_CODE_INTERPRETATE_EDITCOMMENT, VIRTKEY, NOINVERT
+    "L",            MID_CODE_INTERPRETATE_EDITLABEL, VIRTKEY, NOINVERT
+    "S",            MID_CODE_INTERPRETATE_UNICODESTRING, VIRTKEY, NOINVERT
+    "G",            MID_CODE_NAVIGATE_GOTOADDRESS, VIRTKEY, NOINVERT
+    "R",            MID_CODE_NAVIGATE_GOTOREFERENCE, VIRTKEY, NOINVERT
+    "X",            MID_CODE_NAVIGATE_GOTOXREFERENCE, VIRTKEY, NOINVERT
+    VK_LEFT,        MID_CODE_NAVIGATE_HISTORYBACK, VIRTKEY, ALT, NOINVERT
+    VK_RIGHT,       MID_CODE_NAVIGATE_HISTORYFORWARD, VIRTKEY, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 5,1,0,0
+ PRODUCTVERSION 5,1,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "For Windows 2000/XP"
+            VALUE "CompanyName", "Quyse"
+            VALUE "FileDescription", "Code0"
+            VALUE "FileVersion", "5, 1, 0, 0"
+            VALUE "InternalName", "Code0"
+            VALUE "LegalCopyright", "Copyright (C) 2006-2013 Alexander Bich"
+            VALUE "LegalTrademarks", "(no trademarks)"
+            VALUE "OriginalFilename", "Code0.exe"
+            VALUE "ProductName", " Code0 Application"
+            VALUE "ProductVersion", "5, 1, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_KNOT         BITMAP                  "knot.bmp"
+IDB_BITMAP_ICONSTOP     BITMAP                  "iconstop.bmp"
+IDB_BITMAP_ICONQUESTION BITMAP                  "iconquestion.bmp"
+IDB_BITMAP_ICONWARNING  BITMAP                  "iconwarning.bmp"
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
